@@ -6,13 +6,13 @@
     <title>Wordle</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body onload="getDict()">
     <script src="./wordle.js"></script>
     <div id="top-bar">
       <h1 id="title">Wordle</h1>
-      <button id="dark-mode">dark</button>
-      <button id="hint">?</button>
-      <button id="instructions">Instr</button>
+      <button class="top-butto" onclick="darkMode()">dark</button>
+      <button class="top-butto" onclick="getWord()">?</button>
+      <button class="top-butto">Instr</button>
     </div>
     <div id="game">
       <input type="text">
