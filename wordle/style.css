@@ -2,3 +2,42 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#top-bar {
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px #353535 ;
+}
+
+#title {
+  text-align: center;
+}
+
+
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  
+}
+
+input[type=text] {
+  border: 1px solid #ccc;
+  background: linear-gradient(to left, #ccc 1px, transparent 0);
+  background-size: 18px 1px;
+  width: 65px; 
+  font: 12px; 
+  letter-spacing: 9px;
+  text-indent: 4px;
+}
+
+#start-over{
+  margin-top: 150px;
+}
+
+footer{
+  position: fixed;
+  bottom:0;
+}
