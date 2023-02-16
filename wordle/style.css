@@ -4,16 +4,32 @@ body {
   background-color: #FFFFFF;
 }
 
-#top-bar {
+#topBar {
   display: flex;
   justify-content: center;
   border-bottom: solid 1px #353535 ;
+}
+
+.topButto{
+  background: none;
+  padding: 10px;
+  border: none;
+  font-size: 26px;
+}
+
+.topButto:hover{
+  background-color:lightgrey;
 }
 
 #title {
   text-align: center;
 }
 
+tr, td{
+  border: solid 2px #5f5c2a;
+  width: 15vh;
+  height: 15vh;
+}
 
 #game {
   display: flex;
