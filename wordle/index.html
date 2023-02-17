@@ -7,45 +7,61 @@
     <link rel="stylesheet" href="./style.css"/>
     <link rel="icon" href="">
   </head>
-  <body onload="getDict()">
+  <body>
     <script src="./wordle.js"></script>
     <div id="topBar">
       <h1 id="title">Wordle</h1>
       <button class="topButto" onclick="darkMode()">&#9681;</button>
-      <button class="topButto" id="submit">&#63;</button>
-      <button class="topButto">&#9432;</button>
+      <button class="topButto" onclick="showHint()">&#63;</button>
+      <button class="topButto" onclick="showInstr()">&#9432;</button>
+    </div>
+    <div id="inputParent">
+      <div><input id="input" type="text" onkeyup="takeInput()"></div>      
     </div>
     <div id="game">
-      <div><input id="input" type="text" onkeyup="takeInput()"></div>
-      <table>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <div id="instructions">
+        <h3>How to Play</h3>
+        <ul>
+          <li>Start typing</li>
+          <li>Remove letters with Backspace</li>
+          <li>Hit Enter/Return to submit an answer</li>
+          <li>Letters with green background are in the right spot</li>
+          <li>Letters with yellow background exist in the word but are in the wrong spots</li>
+          <li>Letters with gray background do not exist in the word</li>
+          <li>If you need a hint, click the &#63; icon</li>
+        </ul>
+      </div>
     </div>
-    <footer>
-      <h3>Copyright</h3>
-    </footer>
+    <div id="bottom"> 
+      <br>
+      <button id="start-over" onclick="startOver()">Start Over</button>
+      <div id="bottomText"></div>
+    </div>
   </body>
 </html>

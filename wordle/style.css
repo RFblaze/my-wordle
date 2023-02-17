@@ -26,37 +26,67 @@ body {
 }
 
 td{
-  border: solid 2px #5f5c2a;
-  width: 15vh;
-  height: 15vh;
+  border: solid 1px #000000;
+  width: 10vh;
+  height: 10vh;
   text-align: center;
   font-size: 45px;
 }
 
+#inputParent {
+  display: flex;
+  justify-content: center;
+}
+
 #game {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
-  
+  margin-top: 20px;
 }
 
 input[type=text] {
   border: 1px solid #ccc;
-  background: linear-gradient(to left, #ccc 1px, transparent 0);
-  background-size: 18px 1px;
-  width: 65px; 
+  margin-top: 10px;
+  width: 14px; 
   font: 12px; 
   letter-spacing: 9px;
   text-indent: 4px;
 }
 
+#bottom {
+  text-align: center;
+}
+
 #start-over{
-  margin-top: 150px;
+  margin-top: 15px;
+  font-size: 18px;
+  background: rgb(123, 233, 123);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#start-over:active {
+  background: rgb(90, 230, 90);
+}
+
+#instructions{
+  display: none;
+  margin: 15px;
+  padding: 10px;
+  border-left: solid 1px #353535 ;
+}
+
+
+
+#bottomText {
+  background-color: rgb(255, 255, 130);
+  margin-top: 40px;
+  padding: 5px;
+  width: 100%;
+  display: none;
 }
 
 footer{
-  position: fixed;
   bottom:0;
 }
