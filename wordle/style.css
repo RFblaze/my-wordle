@@ -25,10 +25,12 @@ body {
   text-align: center;
 }
 
-tr, td{
+td{
   border: solid 2px #5f5c2a;
   width: 15vh;
   height: 15vh;
+  text-align: center;
+  font-size: 45px;
 }
 
 #game {

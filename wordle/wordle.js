@@ -24,19 +24,54 @@ const getDict = async() =>{
   getWordAndHint(dictionary)
 }
 
+
 const darkMode = () =>{
   let mainBody = document.body
   if (viewTheme){
     let navbar = document.querySelector("#topBar")
     navbar.style.borderBottom = "solid 1px #CACACA"
+    let buttons = document.getElementsByClassName("topButto")
+    
+    for(let button of buttons){
+      button.style.color = "#FFFFFF"
+    }
+
+    let inputBox = document.getElementById("input")
+    inputBox.style.color = "#FFFFFF"
+    
+    let tableRows = document.getElementsByTagName("td")
+
+    for(let row of tableRows){
+      row.style.color = "#FFFFFF"
+    }
+
     mainBody.style.backgroundColor = "#252525"
     mainBody.style.color = "#FFFFFF"
+
     viewTheme = false
   }
 
   else{
+    let navbar = document.querySelector("#topBar")
+    navbar.style.borderBottom = "solid 1px #252525"
+    let buttons = document.getElementsByClassName("topButto")
+    
+    for(let button of buttons){
+      button.style.color = "#000000"
+    }
+
+    let inputBox = document.getElementById("input")
+    inputBox.style.color = "#000000"
+    
+    let tableRows = document.getElementsByTagName("td")
+
+    for(let row of tableRows){
+      row.style.color = "#000000"
+    }
+
     mainBody.style.backgroundColor = "#FFFFFF"
     mainBody.style.color = "#000000"
+
     viewTheme = true
   }
 }
@@ -47,19 +82,28 @@ const checkAnswer = () =>{
 
 }
 
-const fillTable = () =>{
-
+const fillTable = (letter) =>{
+  let box = document.querySelector("td")
+  box.append(letter)
+  letterList.push(letter)
 }
 
-function takeInput(){
-  let letter = document.getElementById("input").value
+// const clearBox = () => {
+//   let inputBox = document.getElementById("input")
+//   inputBox.value = ""
+// }
+
+const takeInput = () => {
+  let inputBox = document.getElementById("input")
+  // inputBox.addEventListener("keyup", clearBox)
+  let letter = inputBox.value
   if (letter.match(/[a-zA-z]/) != null && letter.length == 1){
     console.log(letter)
+    fillTable(letter)
   }
-
-  else if (letter.toLowerCase() == "backspace"){
+  // else if (letter.toLowerCase() == "backspace"){
     
-  }
+  // }
   
 }
 
