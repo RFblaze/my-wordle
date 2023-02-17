@@ -1,7 +1,3 @@
-// remove this line
-// it's just here to shows it works
-// window.alert("works!");
-
 const getWordAndHint = (dictionary) =>{
   const N = Object.keys(dictionary).length
   const randomNum = Number.parseInt(Math.random() * N)
@@ -33,6 +29,8 @@ const getDict = async () =>{
 window.onload = () =>{
   document.getElementById("input").focus()
   getDict()
+  let table = document.getElementById("game")
+  table.addEventListener("click", () => {document.getElementById("input").focus()})
 }
 
 const darkMode = () =>{
@@ -114,6 +112,43 @@ const showInstr = () =>{
   }
 }
 
+const startOver = () =>{
+  getDict()
+  viewTheme = true
+  viewInstr = false
+
+  currentBoxIndex = 0
+  letterList = []
+  currentRow = 0
+  numOfTries = 0
+  // let allBoxes = document.getElementsByTagName("td")
+  // let numOfBoxes = allBoxes.length
+  // letterList.push(letter)
+  // capitalLetter = letter.toUpperCase()
+
+  // allBoxes[currentBoxIndex].append(capitalLetter)
+  // currentBoxIndex += 1
+  let boxes = document.getElementsByTagName("td")
+  for (let box of boxes){
+    box.innerHTML = ""
+    box.style.background = "none"
+  }
+
+  let victoryGif = document.getElementsByTagName("img")
+  victoryGif[0].style.display = "none"
+
+  let gameTable = document.getElementsByTagName("table")
+  gameTable[0].style.display = "block"
+  let inputBox = document.getElementById("input")
+  inputBox.style.display = "block"
+
+  let bottomText = document.getElementById("bottomText")
+  bottomText.innerHTML = `Hint: ${currentHint}`
+  bottomText.style.display = "none"
+  bottomText.style.backgroundColor = "rgb(255, 255, 130)"
+
+}
+
 const fail = () =>{
   let answerSection = document.getElementById("bottomText")
   answerSection.style.backgroundColor = "#FF6060"
@@ -132,19 +167,14 @@ const congrats = () =>{
   let instructions = document.getElementById("instructions")
   instructions.style.display = "none"
 
-  let victoryGif = document.createElement("img")
-  victoryGif.src = "congrats_fkscna.gif"
-  victoryGif.style.width = "360px"
-  victoryGif.style.height = "360px"
-  gameBody.appendChild(victoryGif)
+  let victoryGif = document.getElementsByTagName("img")
+  victoryGif[0].style.display = "block"
 
   let answerSection = document.getElementById("bottomText")
   answerSection.style.backgroundColor = "rgb(90, 230, 90)"
   answerSection.style.display = "block"
   answerSection.innerHTML = `You answered the word ${currentWord} correctly!`
 }
-
-
 
 const checkAnswer = () =>{
   let allBoxes = document.getElementsByTagName("td")
