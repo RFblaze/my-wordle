@@ -7,6 +7,9 @@ const getWordAndHint = (dictionary) =>{
   const {hint} = wordAndHint
   currentWord = word.toLowerCase()
   currentHint = hint
+  let button = document.getElementById("start-over")
+  button.disabled = false
+  button.innerHTML = "Start Over"
 }
 
 var currentWord
@@ -224,13 +227,19 @@ const fillTable = (letter) =>{
   currentBoxIndex += 1
 }
 
-// const deleteTable = () =>{
-//   currentBoxIndex -= 1
-//   let allBoxes = document.getElementsByTagName("td")
-//   letterList.pop()
-//   console.log(allBoxes[currentBoxIndex])
-//   allBoxes[currentBoxIndex].innerHTML = "";
-// }
+const deleteTable = () =>{
+  currentBoxIndex -= 1
+  let allBoxes = document.getElementsByTagName("td")
+  letterList.pop()
+  console.log(allBoxes[currentBoxIndex])
+  allBoxes[currentBoxIndex].innerHTML = "";
+}
+
+document.getElementById("start-over").addEventListener("click", () => {
+  let button = document.getElementById("start-over")
+  button.disabled = true
+  button.innerHTML = "Loading..."
+})
 
 document.addEventListener("keyup", (event) => {
   if (event.key === "Enter" && letterList.length === 4){
@@ -239,6 +248,10 @@ document.addEventListener("keyup", (event) => {
 
   else if (event.key === "Enter" && letterList.length != 4){
     window.alert("You must complete the word first")
+  }
+
+  else if (event.key === "Backspace"){
+    deleteTable()
   }
 })
 
@@ -250,9 +263,5 @@ const takeInput = () => {
     console.log(letter)
     fillTable(letter)
   }
-  else if (letter.toLowerCase() == "backspace"){
-    letterList.pop()
-  }
-  
   return
 }
